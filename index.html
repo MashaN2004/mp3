@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<h1>Песня:<span class="song">Красный гигант</span></h1>
+	<iframe class="iframe" frameborder="0" style="border:none;width:100%;height:180px;" width="100%" height="180" src="https://music.yandex.ru/iframe/#track/80490254/14749676">Слушайте <a href='https://music.yandex.ru/album/14749676/track/80490254'>Красный гигант</a> — <a href='https://music.yandex.ru/artist/11261854'>Музыка звёзд</a> на Яндекс.Музыке</iframe>
+	<button class="btn1">Предыдущий трек</button>
+	<button class="btn2">Следующий трек</button>
+	<script type="text/javascript">
+		let btn1 = document.querySelector(".btn1");
+		let btn2 = document.querySelector(".btn2");
+		let song = document.querySelector(".song");
+		let iframe = document.querySelector(".iframe");
+		let songs =['Красный гигант','Солнце (Intro)','Поехали!'];
+		let links = ['https://music.yandex.ru/iframe/#track/80490254/14749676','https://music.yandex.ru/iframe/#track/80492076/14749676','https://music.yandex.ru/iframe/#track/80490252/14749676']
+		let index = 0;
+		btn1.onclick = function(){
+			index = index - 1;
+			iframe.src = links[index]
+			
+			song.innerHTML = songs[index]
+			if(index < 0){
+				index = 2;
+				iframe.src = links[index]
+				
+			    song.innerHTML = songs[index]
+			}
+			  
+		}
+		btn2.onclick = function(){
+			index = index + 1;
+			iframe.src = links[index]
+			song.innerHTML = songs[index]
+			if(index == 3){
+				index = 0;
+				iframe.src = links[index]
+			    song.innerHTML = songs[index]
+			}
+			  
+		}
+		
+
+
+
+	</script>
+</body>
+</html>
+<!--1. Создай папку проекта, где хочешь. 
+    2. Создай в этой папке  файлы index.html, main.js.
+    3. Создание файла package.json 
+      3.1.Запусти командную строку, перейди в папку проекта через команду cd. 
+      3.2. Напиши команду npm init. Тогда, в папке появится файл  package.json
+    4. В файле package.json в ключе script замени объект с ключом test на объект с ключем {"start": "electron ."}
+    5. Введи в командную строку команду: npm install --save-dev electron
+    6. В файле main.js пропиши следующий код:
+       const { app, BrowserWindow } = require('electron')
+
+       function createWindow () {
+           
+            let win = new BrowserWindow({
+              width: 800,
+              height: 600,
+              webPreferences: {
+                nodeIntegration: true
+              }
+            })
+
+            win.loadFile('index.html')
+    }
+
+    app.whenReady().then(createWindow)
+  7. Напиши в index.html обычный js-код.
+  8. Запусти приложение через командную строку. Для этого напиши: npm start -->
+ <!--  <iframe frameborder="0" style="border:none;width:100%;height:180px;" width="100%" height="180" src="https://music.yandex.ru/iframe/#track/80490252/14749676">Слушайте <a href='https://music.yandex.ru/album/14749676/track/80490252'>Поехали!</a> — <a href='https://music.yandex.ru/artist/11261854'>Музыка звёзд</a> на Яндекс.Музыке</iframe>
+  <iframe frameborder="0" style="border:none;width:100%;height:180px;" width="100%" height="180" src="https://music.yandex.ru/iframe/#track/80492076/14749676">Слушайте <a href='https://music.yandex.ru/album/14749676/track/80492076'>Солнце (Intro)</a> — <a href='https://music.yandex.ru/artist/11261854'>Музыка звёзд</a> на Яндекс.Музыке</iframe> -->
